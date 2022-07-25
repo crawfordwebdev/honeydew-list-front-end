@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
@@ -7,10 +7,22 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
+import * as honeydewService from './services/honeydewService'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
+
+  const [honeydews, setHoneydews] = useState([])
+
+  useEffect(() => {
+    const fetchAllHoneydews = async () => {
+      const honeydewData = await honeydewService.getAll()
+      setHoneydews(honeydewData)
+    }
+    fetchAllHoneydews()
+  }, [])
+
 
   const handleLogout = () => {
     authService.logout()
@@ -20,6 +32,15 @@ const App = () => {
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
+  }
+
+  const handleCreateHoneydew = async newHoneydewData => {
+    console.log("handleCreateHoneydew trigged")
+    console.log("New Honeydew Data: ", newHoneydewData)
+    // const newHoneydew = await honeydewService.create(newHoneydewData)
+
+    // setHoneydews([...honeydews, newHoneydew])
+    // navigate('/honeydews')
   }
 
   return (

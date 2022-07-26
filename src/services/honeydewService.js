@@ -1,5 +1,5 @@
 import * as tokenService from './tokenService'
-const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/honeydew`
+const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/honeydews`
 
 async function create(honeydew) {
   const res = await fetch(BASE_URL, {
@@ -13,8 +13,18 @@ async function create(honeydew) {
   return res.json()
 }
 
+// async function getAll() {
+//   const res = await fetch(BASE_URL)
+//   return res.json()
+// }
+
 async function getAll() {
-  const res = await fetch(BASE_URL)
+  const res = await fetch(BASE_URL, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`, // Form Data notification for the back-end
+    }
+  })
   return res.json()
 }
 

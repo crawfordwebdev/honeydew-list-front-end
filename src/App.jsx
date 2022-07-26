@@ -7,22 +7,11 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
-import * as honeydewService from './services/honeydewService'
+import HoneydewList from './pages/HoneydewList/HoneydewList'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
-
-  const [honeydews, setHoneydews] = useState([])
-
-  useEffect(() => {
-    const fetchAllHoneydews = async () => {
-      const honeydewData = await honeydewService.getAll()
-      setHoneydews(honeydewData)
-    }
-    fetchAllHoneydews()
-  }, [])
-
 
   const handleLogout = () => {
     authService.logout()
@@ -34,19 +23,18 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  const handleCreateHoneydew = async newHoneydewData => {
-    console.log("handleCreateHoneydew trigged")
-    console.log("New Honeydew Data: ", newHoneydewData)
-    // const newHoneydew = await honeydewService.create(newHoneydewData)
-
-    // setHoneydews([...honeydews, newHoneydew])
-    // navigate('/honeydews')
-  }
-
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
+        <Route
+          path="/honeydews"
+          element={
+            user ?
+              <HoneydewList />
+            : <Navigate to="/login" /> 
+          } 
+        />
         <Route path="/" element={<Landing user={user} />} />
         <Route
           path="/signup"

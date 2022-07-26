@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import styles from './Honeydew.module.css'
 
+import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
 import Fab from '@mui/material/Fab';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
@@ -28,8 +29,16 @@ const ShowHoneydew = ({styleButtons, honeydew, handleDeleteHoneydew, handleUpdat
 
 
   return (
-    <>
-			<form className={styles.container} ref={formElement} onSubmit={handleSubmit} > 
+    <div className={styles.container}>
+      <span className={styles.checkBox}>
+        <Checkbox 
+          size="large"
+          inputProps={{ 
+            'aria-label': 'finished checkbox'
+           }}
+        />
+      </span>
+			<form ref={formElement} onSubmit={handleSubmit} > 
         <TextField
           required
           name="task"
@@ -66,7 +75,7 @@ const ShowHoneydew = ({styleButtons, honeydew, handleDeleteHoneydew, handleUpdat
             onChange={handleChange}
           />
         </span>
-        <span>
+        <span className={styles.buttons}>
           <Fab 
             type="submit"
             variant="extended" 
@@ -94,7 +103,7 @@ const ShowHoneydew = ({styleButtons, honeydew, handleDeleteHoneydew, handleUpdat
           </Fab>
         </span>
 			</form>
-    </>
+    </div>
   )
 }
 

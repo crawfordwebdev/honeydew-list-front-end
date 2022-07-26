@@ -40,8 +40,9 @@ const CreateHoneydewForm = (props) => {
 
 
   return (
-    <>
-			<form className={styles.container} ref={formElement} onSubmit={handleSubmit}>
+    <div className={styles.container}>
+			<span className={styles.checkBox}>&nbsp;</span>
+			<form ref={formElement} onSubmit={handleSubmit}>
 					<TextField
 						required
 						name="task"
@@ -67,19 +68,22 @@ const CreateHoneydewForm = (props) => {
 							onChange={handleChange}
 						/>
 					</span>
-					<Fab 
-						variant="extended" 
-						color="primary" 
-						aria-label="add"
-						type="submit"
-						sx={{ width: props.styleButtons.width }}
-						disabled={!validForm}
-						onClick={props.handleAddHoneyDew}
-					>
-						<AddIcon />
-					</Fab>
+					<span className={styles.buttons}>
+						<Fab 
+							variant="extended"
+							id={styles.addButton}
+							color="primary" 
+							aria-label="add"
+							type="submit"
+							sx={{ width: props.styleButtons.width }}
+							disabled={!validForm}
+							onClick={props.handleAddHoneyDew}
+						>
+							<AddIcon />
+						</Fab>
+					</span>
 			</form>
-		</>
+		</div>
   )
 }
 

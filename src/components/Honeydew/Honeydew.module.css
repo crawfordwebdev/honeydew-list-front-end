@@ -1,21 +1,41 @@
-.container {
+:root {
   --gap-spacing: 10px;
-  --margin-spacing: 5px;
+  --margin-spacing: 0px;
 
-  margin: var(--margin-spacing);
-  padding: var(--gap-spacing);
-  border-radius: 5px;
-  border: 2px solid #4F5E1D;
-  background-color: #9BAB68;
-  width: 600px;
+}
+
+.container {
+  margin-bottom: var(--gap-spacing);
+  width: 650px;
   max-width: 90vw;
   height: 100%;
   font-weight: 600;
+}
+
+.container > form {
+
+  margin: var(--margin-spacing);
+  padding: var(--gap-spacing);
+  border: 2px solid #4F5E1D;
+  background-color: #9BAB68;
+  border-radius: 5px;
   display: grid;
   grid-column-gap: var(--gap-spacing);
   grid-row-gap: var(--gap-spacing);
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 5fr 1fr;
   grid-template-rows: 1fr;
+}
+
+.container > form > :first-child {
+  width: 450px;
+  max-width: 85vw;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: right;
 }
 
 .ttc {
@@ -24,10 +44,23 @@
   gap: var(--gap-spacing);
 }
 
-.container > :last-child {
-  justify-self: end;
+
+
+.checkBox {
+  min-width: 53px;
+  /* grid-area: checkbox 1/2; */
+  float: left;
 }
 
 #updateButton {
   margin-right: var(--gap-spacing);
+}
+
+.container > form > :last-child {
+  justify-self: end;
+}
+
+#addButton {
+  justify-self: end;
+  margin: 0;
 }

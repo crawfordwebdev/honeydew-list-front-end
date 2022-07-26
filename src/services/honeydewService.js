@@ -1,22 +1,17 @@
 import * as tokenService from './tokenService'
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/honeydews`
 
-async function create(honeydew) {
+async function create(element) {
   const res = await fetch(BASE_URL, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`, // Form Data notification for the back-end
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(honeydew)
+    body: JSON.stringify(element)
   })
   return res.json()
 }
-
-// async function getAll() {
-//   const res = await fetch(BASE_URL)
-//   return res.json()
-// }
 
 async function getAll() {
   const res = await fetch(BASE_URL, {
@@ -43,14 +38,14 @@ async function deleteOne(id) {
   return res.json()
 }
 
-async function update(drink) {
-  const res = await fetch(`${BASE_URL}/${drink._id}`, {
+async function update(element) {
+  const res = await fetch(`${BASE_URL}/${element._id}`, {
     method: 'PUT',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(drink)
+    body: JSON.stringify(element)
   })
   return res.json()
 }

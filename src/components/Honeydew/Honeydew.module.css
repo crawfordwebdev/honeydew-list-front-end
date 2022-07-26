@@ -4,7 +4,7 @@
 
 }
 
-.container {
+.container, .containerFinished {
   margin-bottom: var(--gap-spacing);
   width: 650px;
   max-width: 90vw;
@@ -12,8 +12,7 @@
   font-weight: 600;
 }
 
-.container > form {
-
+.container > form, .containerFinished > form {
   margin: var(--margin-spacing);
   padding: var(--gap-spacing);
   border: 2px solid #4F5E1D;
@@ -22,11 +21,16 @@
   display: grid;
   grid-column-gap: var(--gap-spacing);
   grid-row-gap: var(--gap-spacing);
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
   grid-template-rows: 1fr;
 }
 
-.container > form > :first-child {
+.containerFinished > form {
+  border: 2px solid #3f3f3f;
+  background-color: #ababab;
+}
+
+.taskInput {
   width: 450px;
   max-width: 85vw;
 }

@@ -13,9 +13,13 @@ const ShowHoneydew = ({styleButtons, honeydew, handleDeleteHoneydew, handleUpdat
   const [formData, setFormData] = useState(honeydew)
 
 	const handleChange = evt => {
-		console.log(evt)
 		setFormData({ ...formData, [evt.target.name]: evt.target.value })
 	}
+
+  const handleCheckbox = evt => {
+		setFormData({ ...formData, [evt.target.name]: evt.target.checked })
+    handleUpdateHoneydew(formData) // Calling this so it saves the checkbox
+  }
 
   const handleSubmit = evt => {
 		evt.preventDefault()
@@ -27,22 +31,26 @@ const ShowHoneydew = ({styleButtons, honeydew, handleDeleteHoneydew, handleUpdat
 		formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
 	}, [formData])
 
-
   return (
-    <div className={styles.container}>
-      <span className={styles.checkBox}>
-        <Checkbox 
-          size="large"
-          inputProps={{ 
-            'aria-label': 'finished checkbox'
-           }}
-        />
-      </span>
+    <div className={formData.finished ? styles.containerFinished : styles.container}>
+
 			<form ref={formElement} onSubmit={handleSubmit} > 
+        <span className={styles.checkBox}>
+          <Checkbox 
+            name="finished"
+            size="large"
+            inputProps={{ 
+              'aria-label': 'finished checkbox'
+            }}
+            onClick={handleCheckbox}
+            checked={formData.finished}
+          />
+        </span>
         <TextField
           required
           name="task"
           id="task-input"
+          className={styles.taskInput}
           label="Task"
           autoComplete="off"
           sx={{ 
@@ -50,6 +58,7 @@ const ShowHoneydew = ({styleButtons, honeydew, handleDeleteHoneydew, handleUpdat
           }}
           value={formData.task}
           onChange={handleChange}
+          disabled={formData.finished}
         />
         <span className={styles.ttc}>
           <TextField
@@ -62,6 +71,7 @@ const ShowHoneydew = ({styleButtons, honeydew, handleDeleteHoneydew, handleUpdat
             InputProps={{ inputProps: { min: 0 } }}
             value={formData.estimatedTimeToComplete}
             onChange={handleChange}
+            disabled={formData.finished}
           />
                     <TextField
             name="actualTimeToComplete"
@@ -73,6 +83,7 @@ const ShowHoneydew = ({styleButtons, honeydew, handleDeleteHoneydew, handleUpdat
             InputProps={{ inputProps: { min: 0 } }}
             value={formData.actualTimeToComplete}
             onChange={handleChange}
+            disabled={formData.finished}
           />
         </span>
         <span className={styles.buttons}>
@@ -83,7 +94,7 @@ const ShowHoneydew = ({styleButtons, honeydew, handleDeleteHoneydew, handleUpdat
             color="primary" 
             aria-label="edit"
             sx={{ width: styleButtons.width }}
-            disabled={!validForm}
+            disabled={!validForm || formData.finished}
           >
             <EditIcon 
               fontSize="large" 
@@ -96,6 +107,7 @@ const ShowHoneydew = ({styleButtons, honeydew, handleDeleteHoneydew, handleUpdat
             aria-label="delete"
             sx={{ width: styleButtons.width }}
             onClick={() => handleDeleteHoneydew(formData._id)}
+            disabled={formData.finished}
           >
             <DeleteForeverIcon 
               fontSize="large" 

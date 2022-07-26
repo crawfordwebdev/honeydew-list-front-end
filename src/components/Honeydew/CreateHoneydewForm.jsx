@@ -41,47 +41,48 @@ const CreateHoneydewForm = (props) => {
 
   return (
     <div className={styles.container}>
-			<span className={styles.checkBox}>&nbsp;</span>
 			<form ref={formElement} onSubmit={handleSubmit}>
+				<span className={styles.checkBox}>&nbsp;</span>
+				<TextField
+					required
+					name="task"
+					id="task-input"
+					className={styles.taskInput}
+					label="Task"
+					autoComplete="off"
+					sx={{ 
+						width: '100%',
+					}}
+					value={formData.task}
+					onChange={handleChange}
+				/>
+				<span className={styles.ttc}>
 					<TextField
-						required
-						name="task"
-						id="task-input"
-						label="Task"
+						name="estimatedTimeToComplete"
+						id="estimatedTTCMinutes-input"
+						type="number"
 						autoComplete="off"
-						sx={{ 
-							width: '100%',
-						}}
-						value={formData.task}
+						label="Estimated Minutes"
+						InputLabelProps={{ shrink: true }}
+						InputProps={{ inputProps: { min: 0 } }}
+						value={formData.estimatedTimeToComplete}
 						onChange={handleChange}
 					/>
-					<span className={styles.ttc}>
-						<TextField
-							name="estimatedTimeToComplete"
-							id="estimatedTTCMinutes-input"
-							type="number"
-							autoComplete="off"
-							label="Estimated Minutes"
-							InputLabelProps={{ shrink: true }}
-							InputProps={{ inputProps: { min: 0 } }}
-							value={formData.estimatedTimeToComplete}
-							onChange={handleChange}
-						/>
-					</span>
-					<span className={styles.buttons}>
-						<Fab 
-							variant="extended"
-							id={styles.addButton}
-							color="primary" 
-							aria-label="add"
-							type="submit"
-							sx={{ width: props.styleButtons.width }}
-							disabled={!validForm}
-							onClick={props.handleAddHoneyDew}
-						>
-							<AddIcon />
-						</Fab>
-					</span>
+				</span>
+				<span className={styles.buttons}>
+					<Fab 
+						variant="extended"
+						id={styles.addButton}
+						color="primary" 
+						aria-label="add"
+						type="submit"
+						sx={{ width: props.styleButtons.width }}
+						disabled={!validForm}
+						onClick={props.handleAddHoneyDew}
+					>
+						<AddIcon />
+					</Fab>
+				</span>
 			</form>
 		</div>
   )

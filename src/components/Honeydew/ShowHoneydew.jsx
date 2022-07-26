@@ -1,10 +1,8 @@
 import { useState, useRef, useEffect } from "react"
 import styles from './Honeydew.module.css'
 
-import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
 
@@ -56,17 +54,18 @@ const ShowHoneydew = ({styleButtons, honeydew, handleDeleteHoneydew, handleUpdat
             value={formData.estimatedTimeToComplete}
             onChange={handleChange}
           />
+                    <TextField
+            name="actualTimeToComplete"
+            id="actualTTCMinutes-input"
+            type="number"
+            autoComplete="off"
+            label="Actual Minutes"
+            InputLabelProps={{ shrink: true }}
+            InputProps={{ inputProps: { min: 0 } }}
+            value={formData.actualTimeToComplete}
+            onChange={handleChange}
+          />
         </span>
-        {/* <Fab 
-        variant="extended" 
-        color="primary" 
-        aria-label="add"
-        type="submit"
-        sx={{ width: props.buttons.width }}
-        disabled={!validForm}
-        onClick={props.handleAddHoneyDew}
-          ><AddIcon />
-        </Fab> */}
         <span>
           <Fab 
             type="submit"
@@ -75,6 +74,7 @@ const ShowHoneydew = ({styleButtons, honeydew, handleDeleteHoneydew, handleUpdat
             color="primary" 
             aria-label="edit"
             sx={{ width: styleButtons.width }}
+            disabled={!validForm}
           >
             <EditIcon 
               fontSize="large" 

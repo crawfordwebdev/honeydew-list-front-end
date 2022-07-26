@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react'
 import * as honeydewService from '../../services/honeydewService'
-import CreateHoneydewForm from '../../components/CreateHoneydewForm/CreateHoneydewForm'
-import ShowHoneydew from '../../components/ShowHoneydew/ShowHoneydew'
+import CreateHoneydewForm from '../../components/Honeydew/CreateHoneydewForm'
+import ShowHoneydew from '../../components/Honeydew/ShowHoneydew'
 import styles from './HoneydewList.module.css'
 
 function HoneydewList() {
   const [honeydews, setHoneydews] = useState([])
+  const styleButtons ={
+    width: '50px',
+    height: '50px',
+  }
 
   useEffect(() => {
     const fetchAllHoneydews = async () => {
@@ -33,6 +37,7 @@ function HoneydewList() {
 
 
   const handleUpdateHoneydew = async (updatedHoneydewData) => {
+    console.log(updatedHoneydewData)
     const updatedHoneydew = await honeydewService.update(updatedHoneydewData)
     const newHoneydewArray = honeydews.map(honeydew => 
       honeydew._id === updatedHoneydew._id ? updatedHoneydew : honeydew
@@ -41,25 +46,29 @@ function HoneydewList() {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <h1>Honeydews</h1>
-      <CreateHoneydewForm handleCreateHoneydew={handleCreateHoneydew} />
-      <div className={styles.container}>
+      <CreateHoneydewForm 
+        styleButtons={styleButtons}
+        handleCreateHoneydew={handleCreateHoneydew} 
+      />
+      <div className={styles.list}>
         {honeydews?.length > 0 
         ?
           honeydews.map(honeydew =>
             <ShowHoneydew 
               key={honeydew._id} 
+              styleButtons={styleButtons}
               honeydew={honeydew} 
               handleUpdateHoneydew={handleUpdateHoneydew}
               handleDeleteHoneydew={handleDeleteHoneydew}
             />
           )
         :
-        <p>No Tasks yet</p>
+        <p>No Honeydew Tasks Yet</p>
         }
       </div>
-    </>
+    </div>
   )
 }
 

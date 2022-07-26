@@ -5,6 +5,11 @@ import ShowHoneydew from '../../components/Honeydew/ShowHoneydew'
 import styles from './HoneydewList.module.css'
 
 function HoneydewList() {
+  // Sorting an array of objects by a boolean property
+  // https://bobbyhadz.com/blog/javascript-sort-array-of-objects-by-boolean-property
+  // Needed to cast the boolean to a number and compare those numbers
+  // Now the finished tasks will be listed at the bottom
+
   const [honeydews, setHoneydews] = useState([])
   const styleButtons ={
     width: '50px',
@@ -55,7 +60,9 @@ function HoneydewList() {
       <div className={styles.list}>
         {honeydews?.length > 0 
         ?
-          honeydews.map(honeydew =>
+          honeydews
+          .sort((a, b) => Number(a.finished) - Number(b.finished))
+          .map(honeydew =>
             <ShowHoneydew 
               key={honeydew._id} 
               styleButtons={styleButtons}

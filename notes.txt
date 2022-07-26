@@ -1,0 +1,21 @@
+color ideas
+
+CFE38B honeydew green
+C1D59D another green
+7A8E6A border color?
+934C4C red delete color
+2F3539 darker text color?
+
+Monochromatic
+CFE38B
+BFE346
+CADE87
+4F5E1D
+9BAB68
+
+Triad
+81914A
+9EB7DE
+CADE87
+DE7E71
+915951

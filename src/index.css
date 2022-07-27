@@ -36,3 +36,7 @@ h1 {
   font-size: 4rem;
   filter: drop-shadow(6px 2px 3px rgba(75, 75, 75, .6));
 }
+
+a {
+  text-decoration: none;
+}

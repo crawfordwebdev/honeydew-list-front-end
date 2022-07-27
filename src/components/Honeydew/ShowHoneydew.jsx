@@ -35,13 +35,15 @@ const ShowHoneydew = ({styleButtons, honeydew, handleDeleteHoneydew, handleUpdat
     <div className={formData.finished ? styles.containerFinished : styles.container}>
 
 			<form ref={formElement} onSubmit={handleSubmit} > 
-        <span className={styles.checkBox}>
+        <span className={styles.checkBoxContainer}>
           <Checkbox 
             name="finished"
             size="large"
+            className={styles.checkboxElement}
             inputProps={{ 
               'aria-label': 'finished checkbox'
             }}
+            sx={{transform: 'scale(1.25)'}}
             onClick={handleCheckbox}
             checked={formData.finished}
           />

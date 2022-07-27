@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import styles from './ChangePasswordForm.module.css'
 import * as authService from '../../services/authService'
 
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 const ChangePasswordForm = props => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
@@ -43,50 +46,54 @@ const ChangePasswordForm = props => {
       className={styles.container}
     >
       <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>
-          Current Password
-        </label>
-        <input
+        <TextField 
           type="password"
           autoComplete="off"
           id="password"
-          value={pw}
+          value={formData.pw}
           name="pw"
           onChange={handleChange}
+          label="Current Password"
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="newPassword" className={styles.label}>
-          New Password
-        </label>
-        <input
+        <TextField 
           type="password"
           autoComplete="off"
           id="newPassword"
           value={newPw}
           name="newPw"
           onChange={handleChange}
+          label="New Password"
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="newPasswordConf" className={styles.label}>
-          Confirm New Password
-        </label>
-        <input
+        <TextField 
           type="password"
           autoComplete="off"
           id="newPasswordConf"
           value={newPwConf}
           name="newPwConf"
           onChange={handleChange}
+          label="Confirm New Password"
         />
       </div>
       <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>
+      <Button 
+          type="submit"
+          variant="contained"
+          disabled={isFormInvalid()}
+        >
           Change Password
-        </button>
-        <Link to="/">
-          <button>Cancel</button>
+        </Button>
+
+        <Link to="/honeydews">
+          <Button 
+              style={{marginLeft: '5px'}}variant="contained"
+              color="error"
+          >
+          Cancel
+          </Button>
         </Link>
       </div>
     </form>

@@ -26,3 +26,4 @@ https://github.com/crawfordwebdev/honeydew-list-back-end
 - Total estimated time to complete all unfinished tasks
 - Estimated versus actual completetion time comparisons
 - Sharing and assigning of tasks with spouse or housemates
+- Add a search field to search through all of the tasks

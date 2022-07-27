@@ -43,17 +43,26 @@
 }
 
 .ttc {
-  grid-area: ttc 2/1;
+  min-width: 15px;
+  grid-column-start: 2;
   display: flex;
   gap: var(--gap-spacing);
 }
 
+.checkBoxContainer {
+  min-width: 80px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  display: flex;
+  justify-content: center;
+}
 
-
-.checkBox {
-  min-width: 53px;
-  /* grid-area: checkbox 1/2; */
-  float: left;
+.checkboxElement {
+  height: 80px;
+  width: 80px;
+  align-self: center;
 }
 
 #updateButton {
@@ -67,4 +76,11 @@
 #addButton {
   justify-self: end;
   margin: 0;
+}
+
+.buttons {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }

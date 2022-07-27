@@ -21,4 +21,18 @@ body {
   /* Not widely supported as of 2022 */
   -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale;
+
+  font-family: minion-pro-display, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
+  
+}
+
+h1 {
+  font-family: confiteria-script, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 4rem;
+  filter: drop-shadow(6px 2px 3px rgba(75, 75, 75, .6));
 }

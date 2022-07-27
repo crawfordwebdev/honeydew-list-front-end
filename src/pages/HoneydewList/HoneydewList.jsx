@@ -52,7 +52,7 @@ function HoneydewList() {
 
   return (
     <div className={styles.container}>
-      <h1>Honeydews</h1>
+      <h1 className="logo">Honeydews</h1>
       <CreateHoneydewForm 
         styleButtons={styleButtons}
         handleCreateHoneydew={handleCreateHoneydew} 

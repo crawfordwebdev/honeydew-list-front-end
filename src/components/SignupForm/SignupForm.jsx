@@ -95,7 +95,7 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
+      {/* <div className={styles.inputContainer}>
         <Button variant="contained" component="label">
           Upload Photo
           <input 
@@ -107,7 +107,7 @@ const SignupForm = props => {
             onChange={handleChangePhoto}
             />
         </Button>
-      </div>
+      </div> */}
       <div className={styles.inputContainer}>
         <Button 
           type="submit"

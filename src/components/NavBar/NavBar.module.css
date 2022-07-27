@@ -1,5 +1,11 @@
 .navbar {
   border-bottom: 2px solid black;
+
+
+font-family: pinecone-mvb-rough1,sans-serif;
+font-weight: 400;
+font-style: normal;
+
 }
 .navbar ul {
   text-decoration: none;
@@ -11,6 +17,9 @@
 .navbar ul li {
   font-size: 2rem;
   color: black;
+  /* border: 2px solid black;
+  padding: 5px;
+  border-radius: 15px; */
 }
 
 .navbar ul li a {

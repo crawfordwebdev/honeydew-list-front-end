@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
 import styles from './NavBar.module.css'
 import LogoutIcon from '@mui/icons-material/Logout';
-import LoginIcon from '@mui/icons-material/Login';
-import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import KeyIcon from '@mui/icons-material/Key';
 
 const NavBar = ({ user, handleLogout }) => {
@@ -11,7 +9,7 @@ const NavBar = ({ user, handleLogout }) => {
       {user ?
         <nav>
           <ul>
-            <li><Link to="/honeydews">My Honeydews</Link></li>
+            <li><Link to="/honeydews">My To Dew List</Link></li>
             <span className={styles.buttons}>
             <li>
               <Link to="/changePassword">
@@ -29,8 +27,8 @@ const NavBar = ({ user, handleLogout }) => {
       :
         <nav>
           <ul>
-            <li><Link to="/login">Login <LoginIcon /></Link></li>
-            <li><Link to="/signup">Register <AppRegistrationIcon /></Link></li>
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/signup">Register</Link></li>
           </ul>
         </nav>
       }

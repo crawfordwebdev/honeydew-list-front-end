@@ -1,0 +1,33 @@
+.navbar {
+  border-bottom: 2px solid black;
+}
+.navbar ul {
+  text-decoration: none;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar ul li {
+  font-size: 2rem;
+  color: black;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: black;
+  transition: 0.75s;
+}
+
+.navbar ul li a:hover, .navbar ul li a:focus {
+  opacity: 0.80;
+}
+
+.navbar ul span {
+}
+
+
+.buttons {
+  display: flex;
+  gap: 15px;  
+}

@@ -15,7 +15,7 @@ async function create(element) {
 
 async function getAll() {
   const res = await fetch(BASE_URL, {
-    method: 'GET',
+    method: 'GET', // This is the default
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`, // Form Data notification for the back-end
     }

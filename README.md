@@ -1,10 +1,6 @@
 # Honeydews
 <p>An app for keeping track of all of those little things that need doing around the house.</p>
-<p>All planning for this app was done on a whiteboard. Please contact the developer for more information</p><br>
-
-## Getting Started: 
-**[![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7) (Deployed Link)](https://honeydews.netlify.app/)**<br><br>
-
+<p>All planning for this app was done on a whiteboard. Please contact me for more information</p><br>
 
 ## Technologies Used: 
 ### Front-End:
